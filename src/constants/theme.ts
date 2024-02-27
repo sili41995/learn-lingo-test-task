@@ -90,7 +90,7 @@ const theme: ITheme = {
   //   primaryBorderRadius: 8,
   //   secondaryBorderRadius: 4,
   // },
-  containerWidth: { desktop: 1184 },
+  containerWidth: { desktop: 1312 },
   // shadows: {
   //   primaryShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
   // },
