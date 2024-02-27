@@ -1,14 +1,11 @@
 import { FC, Suspense } from 'react';
-import { Header, Main, Container, Section } from './SharedLayout.styled';
+import { Header, Main } from './SharedLayout.styled';
 import Loader from '@/components/Loader';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import NavigationBar from '@/components/NavigationBar';
-import { PagePaths } from '@/constants';
+import Container from '@/components/Container';
 
 const SharedLayout: FC = () => {
-  const { pathname } = useLocation();
-  const isHomePage = pathname === PagePaths.homePath;
-
   return (
     <>
       <Header>
@@ -17,13 +14,9 @@ const SharedLayout: FC = () => {
         </Container>
       </Header>
       <Main>
-        <Section isHomePage={isHomePage}>
-          <Container>
-            <Suspense fallback={<Loader />}>
-              <Outlet />
-            </Suspense>
-          </Container>
-        </Section>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </Main>
     </>
   );
