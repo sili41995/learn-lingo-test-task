@@ -4,13 +4,14 @@ declare module '@emotion/react' {
 
 interface ITheme {
   colors: {
+    backdropColor: string;
     // primaryColor: string;
     // otherColor: string;
-    // accentColor: string;
+    accentColor: string;
     // weekendBgColor: string;
     // primaryCalendarColor: string;
     // greenColor: string;
-    // whiteColor: string;
+    whiteColor: string;
     // greyColor: string;
     // lightgreyColor: string;
     // primaryFontColor: string;
@@ -53,14 +54,15 @@ interface ITheme {
 
 const theme: ITheme = {
   colors: {
+    backdropColor: 'rgba(18, 20, 23, 0.50)',
     // primaryColor: '#3470ff',
     // otherColor: '#38b6ff',
     // primaryFontColor: '#141414',
-    // accentColor: '#0b44cd',
+    accentColor: '#0b44cd',
     // weekendBgColor: '#272829',
     // primaryCalendarColor: '#1E1F21',
     // greenColor: '#00FF00',
-    // whiteColor: '#FFFFFF',
+    whiteColor: '#FFFFFF',
     // greyColor: '#555759',
     // lightgreyColor: '#d3d3d3',
     // blueBtnColor: '#7fd1ff',

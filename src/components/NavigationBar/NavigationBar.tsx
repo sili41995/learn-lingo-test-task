@@ -14,8 +14,9 @@ import {
   Title,
   BtnTitle,
 } from './NavigationBar.styled';
+import { IProps } from './NavigationBar.types';
 
-const NavigationBar: FC = () => {
+const NavigationBar: FC<IProps> = ({ onLogInBtnClick, onRegisterBtnClick }) => {
   return (
     <Container>
       <Navigation>
@@ -34,13 +35,15 @@ const NavigationBar: FC = () => {
       </Navigation>
       <ButtonsList>
         <ListItem>
-          <LogInBtn type='button'>
+          <LogInBtn type='button' onClick={onLogInBtnClick}>
             <LogIn />
             <BtnTitle>Log in</BtnTitle>
           </LogInBtn>
         </ListItem>
         <ListItem>
-          <RegBtn type='button'>Registration</RegBtn>
+          <RegBtn type='button' onClick={onRegisterBtnClick}>
+            Registration
+          </RegBtn>
         </ListItem>
       </ButtonsList>
     </Container>
