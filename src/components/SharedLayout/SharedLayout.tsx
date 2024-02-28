@@ -6,6 +6,7 @@ import NavigationBar from '@/components/NavigationBar';
 import Container from '@/components/Container';
 import ModalWin from '@/components/ModalWin';
 import LogInForm from '@/components/LogInForm';
+import RegisterForm from '@/components/RegisterForm';
 
 const SharedLayout: FC = () => {
   const [showLogInForm, setShowLogInForm] = useState<boolean>(false);
@@ -42,13 +43,13 @@ const SharedLayout: FC = () => {
       {showLogInForm && (
         <ModalWin
           setModalWinState={setModalWinState}
-          children={<LogInForm/>}
+          children={<LogInForm />}
         />
       )}
       {showRegisterForm && (
         <ModalWin
           setModalWinState={setModalWinState}
-          children={<div>RegisterForm</div>}
+          children={<RegisterForm />}
         />
       )}
     </>

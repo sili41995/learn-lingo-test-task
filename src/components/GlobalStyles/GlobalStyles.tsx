@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Global, css } from '@emotion/react';
 import 'modern-normalize';
+import 'react-toastify/dist/ReactToastify.css';
 import { theme } from '@/constants';
 import { robotoBold, robotoMedium, robotoRegular } from '@/fonts';
 

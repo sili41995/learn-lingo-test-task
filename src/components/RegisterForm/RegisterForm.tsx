@@ -1,7 +1,4 @@
-import { ICredentials } from '@/types/types';
 import { FC, useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { LuEyeOff } from 'react-icons/lu';
 import {
   Description,
   Form,
@@ -10,19 +7,22 @@ import {
   InputsList,
   ShowPasswordBtn,
   Title,
-} from './LogInForm.styled';
-import SubmitFormBtn from '@/components/SubmitFormBtn';
-import { Messages, regExp } from '@/constants';
+} from './RegisterForm.styled';
+import { INewUser } from '@/types/types';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { toasts } from '@/utils';
+import { Messages, regExp } from '@/constants';
+import { LuEyeOff } from 'react-icons/lu';
+import SubmitFormBtn from '../SubmitFormBtn';
 
-const LogInForm: FC = () => {
+const RegisterForm: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     formState: { errors, isSubmitting },
     handleSubmit,
     reset,
-  } = useForm<ICredentials>();
+  } = useForm<INewUser>();
   const inputType = showPassword ? 'text' : 'password';
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const LogInForm: FC = () => {
       );
   }, [isSubmitting, errors]);
 
-  const handleFormSubmit: SubmitHandler<ICredentials> = (data) => {
+  const handleFormSubmit: SubmitHandler<INewUser> = (data) => {
     console.log(data);
     reset();
   };
@@ -51,13 +51,18 @@ const LogInForm: FC = () => {
 
   return (
     <>
-      <Title>Log In</Title>
+      <Title>Registration</Title>
       <Description>
-        Welcome back! Please enter your credentials to access your account and
-        continue your search for an teacher.
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following information
       </Description>
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <InputsList>
+          <Input
+            type='text'
+            placeholder='Name'
+            {...register('name', { required: true })}
+          />
           <Input
             type='email'
             placeholder='Email'
@@ -77,10 +82,10 @@ const LogInForm: FC = () => {
             </ShowPasswordBtn>
           </InputWrap>
         </InputsList>
-        <SubmitFormBtn title='Log In' />
+        <SubmitFormBtn title='Sign Up' />
       </Form>
     </>
   );
 };
 
-export default LogInForm;
+export default RegisterForm;
