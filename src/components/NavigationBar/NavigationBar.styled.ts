@@ -4,8 +4,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: ${({ theme }) => theme.spacing(16)};
-  padding-right: ${({ theme }) => theme.spacing(16)};
 `;
 
 export const Navigation = styled.nav`

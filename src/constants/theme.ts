@@ -41,7 +41,8 @@ interface ITheme {
   //   secondaryBorderRadius: number;
   // };
   containerWidth: {
-    desktop: number;
+    primaryDesktopSize: 1184;
+    otherDesktopSize: 1312;
   };
   // shadows: {
   //   primaryShadow: string;
@@ -92,7 +93,10 @@ const theme: ITheme = {
   //   primaryBorderRadius: 8,
   //   secondaryBorderRadius: 4,
   // },
-  containerWidth: { desktop: 1312 },
+  containerWidth: {
+    primaryDesktopSize: 1184,
+    otherDesktopSize: 1312,
+  },
   // shadows: {
   //   primaryShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
   // },
