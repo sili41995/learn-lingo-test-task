@@ -17,6 +17,7 @@ import {
   Title,
   TitleWrap,
 } from './TeachersListItem.styled';
+import ReviewsList from '@/components/ReviewsList';
 
 const TeachersListItem: FC<IProps> = ({ teacher }) => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -27,6 +28,7 @@ const TeachersListItem: FC<IProps> = ({ teacher }) => {
     lesson_info: lessonInfo,
     conditions,
     experience,
+    reviews,
   } = teacher;
   const teacherLanguages = languages.join(', ');
   const teacherConditions = conditions.join(' ');
@@ -67,6 +69,7 @@ const TeachersListItem: FC<IProps> = ({ teacher }) => {
           {showMore ? (
             <>
               <Experience>{experience}</Experience>
+              <ReviewsList reviews={reviews} />
             </>
           ) : (
             <ReadMoreBtn onClick={onReadMoreBtnClick}>Read more</ReadMoreBtn>

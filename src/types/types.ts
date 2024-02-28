@@ -17,6 +17,8 @@ export interface IReview {
   comment: string;
 }
 
+export type Reviews = IReview[];
+
 export interface ITeacher {
   id: string;
   name: string;
@@ -24,7 +26,7 @@ export interface ITeacher {
   languages: string[];
   levels: string[];
   rating: number;
-  reviews: IReview[];
+  reviews: Reviews;
   price_per_hour: number;
   lessons_done: number;
   avatar_url: string;
