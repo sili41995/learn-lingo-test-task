@@ -19,12 +19,14 @@ export interface IReview {
 
 export type Reviews = IReview[];
 
+export type Levels = string[];
+
 export interface ITeacher {
   id: string;
   name: string;
   surname: string;
   languages: string[];
-  levels: string[];
+  levels: Levels;
   rating: number;
   reviews: Reviews;
   price_per_hour: number;

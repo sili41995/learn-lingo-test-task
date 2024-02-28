@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { IStyledProps } from './ModalWin.types';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -17,8 +18,8 @@ export const Backdrop = styled.div`
   }
 `;
 
-export const Container = styled.div`
-  width: 566px;
+export const Container = styled.div<IStyledProps>`
+  max-width: ${({ winSize }) => winSize}px;
   position: relative;
   border-radius: 24px;
   background-color: ${({ theme }) => theme.colors.whiteColor};
