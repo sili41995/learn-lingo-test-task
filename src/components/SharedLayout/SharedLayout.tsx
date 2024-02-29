@@ -45,6 +45,7 @@ const SharedLayout: FC = () => {
           setModalWinState={setModalWinState}
           children={<LogInForm />}
           winSize={566}
+          maxSize={506}
         />
       )}
       {showRegisterForm && (
@@ -52,6 +53,7 @@ const SharedLayout: FC = () => {
           setModalWinState={setModalWinState}
           children={<RegisterForm />}
           winSize={566}
+          maxSize={600}
         />
       )}
     </>

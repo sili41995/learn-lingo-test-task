@@ -5,8 +5,6 @@ import { LuEyeOff } from 'react-icons/lu';
 import {
   Description,
   Form,
-  Input,
-  InputWrap,
   InputsList,
   ShowPasswordBtn,
   Title,
@@ -14,6 +12,7 @@ import {
 import SubmitFormBtn from '@/components/SubmitFormBtn';
 import { Messages, regExp } from '@/constants';
 import { toasts } from '@/utils';
+import Input from '@/components/Input';
 
 const LogInForm: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,23 +58,27 @@ const LogInForm: FC = () => {
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <InputsList>
           <Input
-            type='email'
+            settings={{
+              ...register('email', {
+                required: true,
+                pattern: regExp.emailRegEx,
+              }),
+            }}
             placeholder='Email'
-            {...register('email', {
-              required: true,
-              pattern: regExp.emailRegEx,
-            })}
+            type='email'
           />
-          <InputWrap>
-            <Input
-              {...register('password', { required: true, minLength: 6 })}
-              type={inputType}
-              placeholder='Password'
-            />
-            <ShowPasswordBtn onClick={onShowPasswordBtnClick} type='button'>
-              <LuEyeOff size={20} />
-            </ShowPasswordBtn>
-          </InputWrap>
+          <Input
+            settings={{
+              ...register('password', { required: true, minLength: 6 }),
+            }}
+            placeholder='Password'
+            type={inputType}
+            btn={
+              <ShowPasswordBtn onClick={onShowPasswordBtnClick} type='button'>
+                <LuEyeOff size={20} />
+              </ShowPasswordBtn>
+            }
+          />
         </InputsList>
         <SubmitFormBtn title='Log In' />
       </Form>

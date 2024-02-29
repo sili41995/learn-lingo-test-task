@@ -22,7 +22,7 @@ const ReviewsList: FC<IProps> = ({ reviews }) => {
           reviewer_rating: reviewerRating,
           comment,
         }) => (
-          <ListItem>
+          <ListItem key={reviewerName}>
             <Container>
               <Avatar
                 src='https://res.cloudinary.com/dcwbkakpl/image/upload/v1701845113/avatars/default_user_avatar_sr0dpz.jpg'

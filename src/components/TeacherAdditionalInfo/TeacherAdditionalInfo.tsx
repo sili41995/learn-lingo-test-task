@@ -51,6 +51,7 @@ const TeacherAdditionalInfo: FC<IProps> = ({ teacher }) => {
         <ModalWin
           setModalWinState={setModalWinState}
           winSize={600}
+          maxSize={972}
           children={<BookTrialLessonForm teacher={teacher} />}
         />
       )}

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { IStyledProps } from './ModalWin.types';
+import { IStyledProps, IWinStyledProps } from './ModalWin.types';
 
-export const Backdrop = styled.div`
+export const Backdrop = styled.div<IWinStyledProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ export const Backdrop = styled.div`
   background-color: ${({ theme }) => theme.colors.backdropColor};
   overflow-y: scroll;
 
-  @media screen and (max-height: 752px) {
+  @media screen and (max-height: ${({ maxSize }) => maxSize}px) {
     align-items: flex-start;
   }
 `;

@@ -38,3 +38,10 @@ export interface ITeacher {
 }
 
 export type Teachers = ITeacher[];
+
+export interface ITrialLessonData {
+  reason: string;
+  name: string;
+  email: string;
+  phone: string;
+}
