@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { IProps } from './TeachersListItem.types';
 import {
   Avatar,
+  HeaderContainer,
   ImgWrap,
   InfoWrap,
   ListItem,
@@ -12,6 +13,7 @@ import {
 } from './TeachersListItem.styled';
 import TeacherAdditionalInfo from '../TeacherAdditionalInfo';
 import TeacherGeneralInfo from '@/components/TeacherGeneralInfo';
+import TeacherCardHeader from '@/components/TeacherCardHeader';
 
 const TeachersListItem: FC<IProps> = ({ teacher }) => {
   const { avatar_url, name, surname } = teacher;
@@ -24,10 +26,13 @@ const TeachersListItem: FC<IProps> = ({ teacher }) => {
         <Status />
       </ImgWrap>
       <InfoWrap>
-        <TitleWrap>
-          <Title>Languages</Title>
-          <Name>{fullName}</Name>
-        </TitleWrap>
+        <HeaderContainer>
+          <TitleWrap>
+            <Title>Languages</Title>
+            <Name>{fullName}</Name>
+          </TitleWrap>
+          <TeacherCardHeader teacher={teacher} />
+        </HeaderContainer>
         <TeacherGeneralInfo teacher={teacher} />
         <TeacherAdditionalInfo teacher={teacher} />
       </InfoWrap>

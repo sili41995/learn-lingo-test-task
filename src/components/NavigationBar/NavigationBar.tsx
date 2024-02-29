@@ -13,10 +13,30 @@ import {
   RegBtn,
   Title,
   BtnTitle,
+  LogOutBtn,
 } from './NavigationBar.styled';
 import { IProps } from './NavigationBar.types';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { selectIsLoggedIn } from '@/redux/auth/selectors';
+import { getAuth, signOut } from 'firebase/auth';
+import { toasts } from '@/utils';
+import { logOut } from '@/redux/auth/authSlice';
 
 const NavigationBar: FC<IProps> = ({ onLogInBtnClick, onRegisterBtnClick }) => {
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const auth = getAuth();
+  const dispatch = useAppDispatch();
+
+  const onLogOutBtnClick = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(logOut());
+      })
+      .catch((error: Error) => {
+        toasts.errorToast(error.message);
+      });
+  };
+
   return (
     <Container>
       <Navigation>
@@ -33,19 +53,25 @@ const NavigationBar: FC<IProps> = ({ onLogInBtnClick, onRegisterBtnClick }) => {
           </ListItem>
         </LinksList>
       </Navigation>
-      <ButtonsList>
-        <ListItem>
-          <LogInBtn type='button' onClick={onLogInBtnClick}>
-            <LogIn />
-            <BtnTitle>Log in</BtnTitle>
-          </LogInBtn>
-        </ListItem>
-        <ListItem>
-          <RegBtn type='button' onClick={onRegisterBtnClick}>
-            Registration
-          </RegBtn>
-        </ListItem>
-      </ButtonsList>
+      {isLoggedIn ? (
+        <LogOutBtn type='button' onClick={onLogOutBtnClick}>
+          Log Out
+        </LogOutBtn>
+      ) : (
+        <ButtonsList>
+          <ListItem>
+            <LogInBtn type='button' onClick={onLogInBtnClick}>
+              <LogIn />
+              <BtnTitle>Log in</BtnTitle>
+            </LogInBtn>
+          </ListItem>
+          <ListItem>
+            <RegBtn type='button' onClick={onRegisterBtnClick}>
+              Registration
+            </RegBtn>
+          </ListItem>
+        </ButtonsList>
+      )}
     </Container>
   );
 };

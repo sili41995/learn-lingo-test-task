@@ -25,6 +25,15 @@ const SharedLayout: FC = () => {
     setShowRegisterForm(true);
   };
 
+  const onSuccessfulRegister = () => {
+    setShowRegisterForm(false);
+    setShowLogInForm(true);
+  };
+
+  const onSuccessfulLogIn = () => {
+    setShowLogInForm(false);
+  };
+
   return (
     <>
       <Header>
@@ -43,7 +52,7 @@ const SharedLayout: FC = () => {
       {showLogInForm && (
         <ModalWin
           setModalWinState={setModalWinState}
-          children={<LogInForm />}
+          children={<LogInForm onSuccessfulLogIn={onSuccessfulLogIn} />}
           winSize={566}
           maxSize={506}
         />
@@ -51,7 +60,9 @@ const SharedLayout: FC = () => {
       {showRegisterForm && (
         <ModalWin
           setModalWinState={setModalWinState}
-          children={<RegisterForm />}
+          children={
+            <RegisterForm onSuccessfulRegister={onSuccessfulRegister} />
+          }
           winSize={566}
           maxSize={600}
         />

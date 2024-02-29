@@ -13,16 +13,22 @@ import SubmitFormBtn from '@/components/SubmitFormBtn';
 import { Messages, regExp } from '@/constants';
 import { toasts } from '@/utils';
 import Input from '@/components/Input';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { useAppDispatch } from '@/hooks/redux';
+import { setUser } from '@/redux/auth/authSlice';
+import { IProps } from './LogInForm.types';
 
-const LogInForm: FC = () => {
+const LogInForm: FC<IProps> = ({ onSuccessfulLogIn }) => {
+  const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     formState: { errors, isSubmitting },
     handleSubmit,
-    reset,
   } = useForm<ICredentials>();
   const inputType = showPassword ? 'text' : 'password';
+  const auth = getAuth();
 
   useEffect(() => {
     errors.email &&
@@ -40,8 +46,16 @@ const LogInForm: FC = () => {
   }, [isSubmitting, errors]);
 
   const handleFormSubmit: SubmitHandler<ICredentials> = (data) => {
-    console.log(data);
-    reset();
+    signInWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        dispatch(setUser({ name: user.displayName, email: user.email }));
+        onSuccessfulLogIn();
+      })
+      .catch((error: Error) => {
+        toast.error(error.message);
+      });
   };
 
   const onShowPasswordBtnClick = () => {

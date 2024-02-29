@@ -48,6 +48,20 @@ export const ListItem = styled.li`
   }
 `;
 
+export const LogOutBtn = styled.button`
+  min-width: 166px;
+  padding: 14px;
+  border: 0;
+  border-radius: 12px;
+  background-color: rgb(224, 163, 154);
+  color: rgb(255, 255, 255);
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0%;
+`;
+
 export const ButtonsList = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.spacing(4)};

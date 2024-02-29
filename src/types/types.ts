@@ -45,3 +45,23 @@ export interface ITrialLessonData {
   email: string;
   phone: string;
 }
+
+export interface IUserState {
+  name: string | null;
+  email: string | null;
+}
+
+export interface IAuthState {
+  user: IUserState;
+  isLoggedIn: boolean;
+}
+
+export interface ITeachersState {
+  items: ITeacher[];
+  favorites: ITeacher[];
+}
+
+export interface IState {
+  teachers: ITeachersState;
+  auth: IAuthState;
+}

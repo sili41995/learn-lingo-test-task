@@ -21,7 +21,9 @@ export const ImgWrap = styled.div`
   background-color: rgb(255, 255, 255);
 `;
 
-export const InfoWrap = styled.div``;
+export const InfoWrap = styled.div`
+  width: 100%;
+`;
 
 export const Avatar = styled.img`
   width: 96px;
@@ -38,6 +40,11 @@ export const Status = styled.div`
   border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   background-color: rgb(56, 205, 62);
+`;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const TitleWrap = styled.div`

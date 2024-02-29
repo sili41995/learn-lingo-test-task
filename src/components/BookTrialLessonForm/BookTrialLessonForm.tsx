@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { IProps } from './BookTrialLessonForm.types';
 import {
   Avatar,
@@ -18,13 +18,14 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import RadioBtn from '@/components/RadioBtn';
 import SubmitFormBtn from '@/components/SubmitFormBtn';
 import Input from '../Input';
-import { regExp } from '@/constants';
+import { Messages, regExp } from '@/constants';
+import { toasts } from '@/utils';
 
 const BookTrialLessonForm: FC<IProps> = ({ teacher }) => {
   const defaultValues = { reason: 'Career and business' };
   const {
     register,
-    // formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting },
     handleSubmit,
     reset,
     watch,
@@ -34,6 +35,22 @@ const BookTrialLessonForm: FC<IProps> = ({ teacher }) => {
   const { avatar_url: avatarUrl, name, surname } = teacher;
   const fullName = `${name} ${surname}`;
   const reasonValue = watch('reason');
+
+  useEffect(() => {
+    errors.name && toasts.errorToast(Messages.nameReqErr);
+    errors.email &&
+      toasts.errorToast(
+        errors.email.type === 'required'
+          ? Messages.emailReqErr
+          : Messages.emailRegExpErr
+      );
+    errors.phone &&
+      toasts.errorToast(
+        errors.phone.type === 'required'
+          ? Messages.phoneReqErr
+          : Messages.phoneRegExpErr
+      );
+  }, [isSubmitting, errors]);
 
   const handleFormSubmit: SubmitHandler<ITrialLessonData> = (data) => {
     console.log(data);

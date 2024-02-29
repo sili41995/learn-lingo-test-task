@@ -14,16 +14,22 @@ import { toasts } from '@/utils';
 import { Messages, regExp } from '@/constants';
 import { LuEyeOff } from 'react-icons/lu';
 import SubmitFormBtn from '../SubmitFormBtn';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { IProps } from './RegisterForm.types';
 
-const RegisterForm: FC = () => {
+const RegisterForm: FC<IProps> = ({ onSuccessfulRegister }) => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     formState: { errors, isSubmitting },
     handleSubmit,
-    reset,
   } = useForm<INewUser>();
   const inputType = showPassword ? 'text' : 'password';
+  const auth = getAuth();
 
   useEffect(() => {
     errors.email &&
@@ -40,9 +46,27 @@ const RegisterForm: FC = () => {
       );
   }, [isSubmitting, errors]);
 
-  const handleFormSubmit: SubmitHandler<INewUser> = (data) => {
-    console.log(data);
-    reset();
+  const handleFormSubmit: SubmitHandler<INewUser> = ({
+    email,
+    password,
+    name,
+  }) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        updateProfile(auth.currentUser!, {
+          displayName: name,
+        })
+          .then(() => {
+            toasts.successToast('User has been successfully registered');
+            onSuccessfulRegister();
+          })
+          .catch((error: Error) => {
+            toasts.errorToast(error.message);
+          });
+      })
+      .catch((error: Error) => {
+        toasts.errorToast(error.message);
+      });
   };
 
   const onShowPasswordBtnClick = () => {
