@@ -31,8 +31,7 @@ const TeacherCardHeader: FC<IProps> = ({ teacher }) => {
     rating,
     price_per_hour: pricePerHour,
   } = teacher;
-  const favTeachersIds = favList.map(({ id }) => id);
-  const isFav = favTeachersIds.includes(id);
+  const isFav = favList.some((teacher) => teacher.id === id);
   const favBtnIcon = isFav ? (
     <PiHeartFill size={26} />
   ) : (
