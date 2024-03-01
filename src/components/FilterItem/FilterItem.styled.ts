@@ -28,6 +28,7 @@ export const Input = styled.input<IStyledProps>`
   border-radius: 14px;
   background-color: rgb(255, 255, 255);
   padding: 14px 18px;
+  padding-right: ${({ theme }) => theme.spacing(10)};
   color: rgb(18, 20, 23);
   font-family: Roboto;
   font-size: 18px;

@@ -7,12 +7,14 @@ import teachersServiceApi from '@/service/teachersServiceApi';
 import { GeneralParams } from '@/constants';
 import { Teachers } from '@/types/types';
 import Loader from '@/components/Loader';
+import { useFilteredTeachers } from '@/hooks';
 
 const TeachersPage: FC = () => {
   const [startAt, setStartAt] = useState<number>(1);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
   const [teachers, setTeachers] = useState<Teachers>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const filteredTeachers = useFilteredTeachers(teachers);
 
   useEffect(() => {
     const getTeachers = async () => {
@@ -30,6 +32,10 @@ const TeachersPage: FC = () => {
         } else if (result) {
           const teachers: Teachers = Object.values(result);
           setTeachers(teachers);
+
+          if (teachers.length < GeneralParams.limit) {
+            setIsLastPage(true);
+          }
         }
       } catch (error) {
         if (error instanceof Error) {
@@ -50,7 +56,7 @@ const TeachersPage: FC = () => {
   return (
     <MainSection>
       <Filter />
-      <TeachersList teachers={teachers} />
+      <TeachersList teachers={filteredTeachers} />
       {isLoading && <Loader />}
       {!isLastPage && <LoadMOreBtn onClick={onLoadMOreBtnClick} />}
     </MainSection>

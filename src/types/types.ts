@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
 
 export type BtnClickEvent = MouseEvent<HTMLButtonElement>;
 
@@ -68,4 +69,25 @@ export interface IState {
 
 export interface IFetchTeachersProps {
   startAt: number;
+}
+
+export type Filters = string[];
+
+export type InputClick = MouseEvent<HTMLInputElement>;
+
+export interface IFilters {
+  level: string;
+  price: string;
+  language: string;
+}
+
+export interface IUpdateSearchParamsProps {
+  key: string;
+  value: string;
+}
+
+export interface IUseSetSearchParams {
+  updateSearchParams: ({ key, value }: IUpdateSearchParamsProps) => void;
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
 }
