@@ -6,7 +6,7 @@ import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/constants';
 import GlobalStyles from '@/components/GlobalStyles';
 import Toast from '@/components/Toast';
-import '@/teachersServiceApi/firebase';
+import '@/service/firebase';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './redux/store';

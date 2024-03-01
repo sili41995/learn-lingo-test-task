@@ -43,7 +43,7 @@ export const ListItem = styled.li`
     letter-spacing: 0%;
 
     &:is(:hover, :focus, .active) {
-      color: greenyellow;
+      color: rgb(244, 197, 80);
     }
   }
 `;

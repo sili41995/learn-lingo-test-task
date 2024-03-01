@@ -65,3 +65,7 @@ export interface IState {
   teachers: ITeachersState;
   auth: IAuthState;
 }
+
+export interface IFetchTeachersProps {
+  startAt: number;
+}

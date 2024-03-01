@@ -51,6 +51,11 @@ const NavigationBar: FC<IProps> = ({ onLogInBtnClick, onRegisterBtnClick }) => {
           <ListItem>
             <NavLink to={PagePaths.teachersPath}>Teachers</NavLink>
           </ListItem>
+          {isLoggedIn && (
+            <ListItem>
+              <NavLink to={PagePaths.favoritesPath}>Favorites</NavLink>
+            </ListItem>
+          )}
         </LinksList>
       </Navigation>
       {isLoggedIn ? (

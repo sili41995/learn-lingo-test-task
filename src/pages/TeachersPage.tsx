@@ -1,34 +1,58 @@
 import Filter from '@/components/Filter';
 import MainSection from '@/components/MainSection';
-import { FC, useEffect } from 'react';
-import teachers from '@/constants/teachers.json';
+import { FC, useEffect, useState } from 'react';
 import TeachersList from '@/components/TeachersList';
 import LoadMOreBtn from '@/components/LoadMOreBtn';
+import teachersServiceApi from '@/service/teachersServiceApi';
+import { GeneralParams } from '@/constants';
+import { Teachers } from '@/types/types';
+import Loader from '@/components/Loader';
 
 const TeachersPage: FC = () => {
+  const [startAt, setStartAt] = useState<number>(1);
+  const [isLastPage, setIsLastPage] = useState<boolean>(false);
+  const [teachers, setTeachers] = useState<Teachers>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   useEffect(() => {
     const getTeachers = async () => {
       try {
-        const result = await fetch(
-          'https://learn-lingo-app-563b1-default-rtdb.firebaseio.com/teachers.json?orderBy="name"'
-        );
-        const teachers = await result.json();
-        console.log(teachers);
+        setIsLoading(true);
+        const result = await teachersServiceApi.fetchTeachers({ startAt });
+
+        if ((result && result.length < GeneralParams.limit) || !result) {
+          setIsLastPage(true);
+        }
+
+        if (Array.isArray(result)) {
+          const filteredResult = result.filter((teacher) => teacher);
+          setTeachers(filteredResult);
+        } else if (result) {
+          const teachers: Teachers = Object.values(result);
+          setTeachers(teachers);
+        }
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
         }
+      } finally {
+        setIsLoading(false);
       }
     };
 
     getTeachers();
-  }, []);
+  }, [startAt]);
+
+  const onLoadMOreBtnClick = () => {
+    setStartAt((prevState) => prevState + GeneralParams.limit);
+  };
 
   return (
     <MainSection>
       <Filter />
       <TeachersList teachers={teachers} />
-      <LoadMOreBtn />
+      {isLoading && <Loader />}
+      {!isLastPage && <LoadMOreBtn onClick={onLoadMOreBtnClick} />}
     </MainSection>
   );
 };
