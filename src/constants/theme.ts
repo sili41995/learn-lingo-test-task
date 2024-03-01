@@ -37,21 +37,12 @@ interface ITheme {
     primarySectionPadding: number;
     secondarySectionPadding: number;
   };
-  // borderRadius: {
-  //   primaryBorderRadius: number;
-  //   secondaryBorderRadius: number;
-  // };
   containerWidth: {
     primaryDesktopSize: 1184;
     otherDesktopSize: 1312;
   };
-  // shadows: {
-  //   primaryShadow: string;
-  // };
-  cellGap: number;
   transitionDurationAndFunc: string;
   spacing: (value?: number) => string;
-  // trimText: string;
 }
 
 const theme: ITheme = {
@@ -89,26 +80,12 @@ const theme: ITheme = {
     primarySectionPadding: 20,
     secondarySectionPadding: 96,
   },
-  // borderRadius: {
-  //   primaryBorderRadius: 8,
-  //   secondaryBorderRadius: 4,
-  // },
   containerWidth: {
     primaryDesktopSize: 1184,
     otherDesktopSize: 1312,
   },
-  // shadows: {
-  //   primaryShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-  // },
-  cellGap: 1,
   transitionDurationAndFunc: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
   spacing: (value = 1) => `${value * 4}px`,
-  // trimText: `word-wrap: break-word;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // display: -webkit-box;
-  // -webkit-line-clamp: 1;
-  // -webkit-box-orient: vertical;`,
 };
 
 export default theme;
