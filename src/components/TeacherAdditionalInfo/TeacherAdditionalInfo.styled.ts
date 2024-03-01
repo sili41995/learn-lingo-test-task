@@ -5,10 +5,12 @@ export const Container = styled.div`
 `;
 
 export const Experience = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.secondaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
@@ -17,10 +19,12 @@ export const ReadMoreBtn = styled.button`
   background-color: transparent;
   padding: 0;
   border: none;
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
   text-decoration-line: underline;
@@ -32,11 +36,12 @@ export const BookTrialLessonBtn = styled.button`
   margin-top: ${({ theme }) => theme.spacing(8)};
   border: none;
   border-radius: 12px;
-  background-color: rgb(244, 197, 80);
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: 700;
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.secondary}px;
+  font-weight: ${({ theme }) => theme.fontWeight.otherFontWeight};
+
   line-height: 1.56;
   letter-spacing: 0%;
 `;

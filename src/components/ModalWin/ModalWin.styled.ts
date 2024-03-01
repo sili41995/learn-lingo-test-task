@@ -40,7 +40,7 @@ export const CloseBtn = styled.button`
 
   & svg {
     display: block;
-    color: rgb(18, 20, 23);
+    color: ${({ theme }) => theme.colors.primaryFontColor};
     transition: color ${({ theme }) => theme.transitionDurationAndFunc};
   }
 `;

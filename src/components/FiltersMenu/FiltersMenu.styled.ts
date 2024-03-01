@@ -25,11 +25,12 @@ export const Label = styled.label`
 `;
 
 export const Title = styled.span<IStyledProps>`
-  color: ${({ isActive }) =>
-    isActive ? 'rgb(18, 20, 23)' : 'rgba(18, 20, 23, 0.2)'};
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: 500;
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.primaryFontColor : theme.colors.otherColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.secondary}px;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.11;
   letter-spacing: 0%;
 `;

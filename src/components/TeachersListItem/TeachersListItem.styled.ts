@@ -7,7 +7,7 @@ export const ListItem = styled.li`
   flex-wrap: wrap;
   padding: ${({ theme }) => theme.spacing(6)};
   border-radius: 24px;
-  background-color: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.colors.whiteColor};
 
   @media screen and (min-width: 1440px) {
     flex-wrap: nowrap;
@@ -22,9 +22,9 @@ export const ImgWrap = styled.div`
   align-items: center;
   width: 120px;
   height: 120px;
-  border: 3px solid rgb(251, 233, 186);
+  border: 3px solid ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.colors.whiteColor};
 `;
 
 export const InfoWrap = styled.div`
@@ -43,9 +43,9 @@ export const Status = styled.div`
   right: 20px;
   width: 12px;
   height: 12px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid ${({ theme }) => theme.colors.whiteColor};
   border-radius: 50%;
-  background-color: rgb(56, 205, 62);
+  background-color: ${({ theme }) => theme.colors.greenColor};
 `;
 
 export const HeaderContainer = styled.div`
@@ -61,19 +61,22 @@ export const TitleWrap = styled.div`
 `;
 
 export const Title = styled.p`
-  color: rgb(138, 138, 137);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.titleColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
 
 export const Name = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
   font-size: 24px;
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1;
   letter-spacing: 0%;
 `;

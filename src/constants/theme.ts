@@ -5,32 +5,33 @@ declare module '@emotion/react' {
 interface ITheme {
   colors: {
     backdropColor: string;
-    // primaryColor: string;
-    // otherColor: string;
+    primaryFontColor: string;
+    secondaryColor: string;
+    primaryColor: string;
+    titleColor: string;
+    sectionColor: string;
+    iconColor: string;
+    descriptionColor: string;
+    otherColor: string;
     accentColor: string;
-    // weekendBgColor: string;
-    // primaryCalendarColor: string;
-    // greenColor: string;
+    outlineColor: string;
+    greenColor: string;
     whiteColor: string;
-    // greyColor: string;
-    // lightgreyColor: string;
-    // primaryFontColor: string;
-    // blueBtnColor: string;
-    // redBtnColor: string;
-    // redIconColor: string;
-    // greenBtnColor: string;
-    // greenIconColor: string;
   };
-  fontFamily: { primaryFontFamily: string };
-  // fontWeight: {
-  //   primaryFontWeight: number;
-  //   secondaryFontWeight: number;
-  //   otherFontWeight: number;
-  // };
-  // fontSize: {
-  //   primaryFontSize: number;
-  //   secondaryFontSize: number;
-  // };
+  fontFamily: {
+    primaryFontFamily: string;
+  };
+  fontWeight: {
+    primaryFontWeight: number;
+    secondaryFontWeight: number;
+    otherFontWeight: number;
+  };
+  fontSize: {
+    formTitle: number;
+    primary: number;
+    secondary: number;
+    other: number;
+  };
   padding: {
     containerPadding: number;
     primarySectionPadding: number;
@@ -55,35 +56,34 @@ interface ITheme {
 
 const theme: ITheme = {
   colors: {
+    outlineColor: 'rgba(18, 20, 23, 0.1)',
     backdropColor: 'rgba(18, 20, 23, 0.50)',
-    // primaryColor: '#3470ff',
-    // otherColor: '#38b6ff',
-    // primaryFontColor: '#141414',
+    primaryColor: '#F4C550',
+    secondaryColor: '#fbe9ba',
+    otherColor: 'rgba(18, 20, 23, 0.2)',
+    iconColor: '#ffc531',
+    titleColor: '#8a8a89',
+    sectionColor: '#f8f8f8',
+    greenColor: '#38cd3e',
+    descriptionColor: 'rgba(18, 20, 23, 0.8)',
+    primaryFontColor: '#121417',
     accentColor: '#0b44cd',
-    // weekendBgColor: '#272829',
-    // primaryCalendarColor: '#1E1F21',
-    // greenColor: '#00FF00',
     whiteColor: '#FFFFFF',
-    // greyColor: '#555759',
-    // lightgreyColor: '#d3d3d3',
-    // blueBtnColor: '#7fd1ff',
-    // redBtnColor: '#ff9192',
-    // redIconColor: '#d3232f',
-    // greenBtnColor: '#89f2a6',
-    // greenIconColor: '#00c938',
   },
   fontFamily: {
     primaryFontFamily: 'Roboto',
   },
-  // fontWeight: {
-  //   primaryFontWeight: 600,
-  //   secondaryFontWeight: 400,
-  //   otherFontWeight: 500,
-  // },
-  // fontSize: {
-  //   primaryFontSize: 16,
-  //   secondaryFontSize: 20,
-  // },
+  fontWeight: {
+    primaryFontWeight: 500,
+    secondaryFontWeight: 400,
+    otherFontWeight: 700,
+  },
+  fontSize: {
+    formTitle: 40,
+    primary: 16,
+    secondary: 18,
+    other: 14,
+  },
   padding: {
     containerPadding: 16,
     primarySectionPadding: 20,

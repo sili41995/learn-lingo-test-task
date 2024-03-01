@@ -6,11 +6,12 @@ export const Button = styled.button`
   border: none;
   border-radius: 12px;
   padding: ${({ theme }) => theme.spacing(4)};
-  background-color: rgb(244, 197, 80);
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: 700;
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.secondary}px;
+  font-weight: ${({ theme }) => theme.fontWeight.otherFontWeight};
+
   line-height: 1.56;
   letter-spacing: 0%;
 `;

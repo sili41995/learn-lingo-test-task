@@ -38,10 +38,11 @@ export const Navigation = styled.nav`
 `;
 
 export const Title = styled.span`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
   font-size: 20px;
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.2;
   letter-spacing: -2%;
 `;
@@ -54,15 +55,17 @@ export const LinksList = styled.ul`
 
 export const ListItem = styled.li`
   & > a {
-    color: rgb(18, 20, 23);
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 400;
+    color: ${({ theme }) => theme.colors.primaryFontColor};
+    font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+    font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+    font-weight: ${({ theme }) => theme.fontWeight.secondaryFontWeight};
+
     line-height: 1.25;
     letter-spacing: 0%;
 
     &:is(:hover, :focus, .active) {
-      color: rgb(244, 197, 80);
+      color: ${({ theme }) => theme.colors.primaryColor};
     }
   }
 `;
@@ -72,11 +75,13 @@ export const LogOutBtn = styled.button`
   padding: 14px;
   border: 0;
   border-radius: 12px;
-  background-color: rgb(224, 163, 154);
-  color: rgb(255, 255, 255);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 700;
+  background-color: #e0a39a;
+  color: ${({ theme }) => theme.colors.whiteColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.otherFontWeight};
+
   line-height: 1.25;
   letter-spacing: 0%;
 `;
@@ -97,10 +102,12 @@ export const LogInBtn = styled.button`
 `;
 
 export const BtnTitle = styled.span`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.otherFontWeight};
+
   line-height: 1.25;
   letter-spacing: 0%;
 `;
@@ -110,11 +117,13 @@ export const RegBtn = styled.button`
   padding: 14px;
   border: 0;
   border-radius: 12px;
-  background-color: rgb(18, 20, 23);
-  color: rgb(255, 255, 255);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 700;
+  background-color: ${({ theme }) => theme.colors.primaryFontColor};
+  color: ${({ theme }) => theme.colors.whiteColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.otherFontWeight};
+
   line-height: 1.25;
   letter-spacing: 0%;
 `;

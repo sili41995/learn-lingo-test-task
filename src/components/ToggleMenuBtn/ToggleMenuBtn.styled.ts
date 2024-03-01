@@ -15,7 +15,7 @@ export const Button = styled.button<IStyledProps>`
 
   & svg {
     display: block;
-    color: rgb(18, 20, 23);
+    color: ${({ theme }) => theme.colors.primaryFontColor};
     transition: color ${({ theme }) => theme.transitionDurationAndFunc};
   }
 `;

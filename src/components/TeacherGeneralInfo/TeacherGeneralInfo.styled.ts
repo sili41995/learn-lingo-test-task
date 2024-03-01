@@ -10,19 +10,21 @@ export const Container = styled.ul`
 export const InfoItem = styled.li``;
 
 export const Info = styled.p`
-  font-family: Roboto;
-  color: #8a8a89;
-  font-size: 16px;
-  font-weight: 500;
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  color: ${({ theme }) => theme.colors.titleColor};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
 
 export const Languages = styled.span`
-  color: #121417;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
   text-decoration: underline;
 `;
 
 export const Description = styled.span`
-  color: #121417;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
 `;

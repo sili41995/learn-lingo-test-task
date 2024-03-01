@@ -11,7 +11,7 @@ export const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       display: block;
-      color: rgb(0, 0, 0);
+      color: #000000;
     }
   }
 `;
@@ -31,27 +31,29 @@ export const ListItem = styled.li`
     content: '';
     width: 1px;
     height: 16px;
-    background-color: rgba(18, 20, 23, 0.2);
+    background-color: ${({ theme }) => theme.colors.otherColor};
     margin-left: ${({ theme }) => theme.spacing(4)};
   }
 
   & > svg {
     margin-right: ${({ theme }) => theme.spacing(2)};
-    color: rgb(255, 197, 49);
+    color: ${({ theme }) => theme.colors.iconColor};
   }
 `;
 
 export const Option = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
 
 export const OptionAccent = styled.span`
-  color: #38cd3e;
+  color: ${({ theme }) => theme.colors.greenColor};
 `;
 
 export const FavBtn = styled.button<IStyledProps>`
@@ -62,7 +64,8 @@ export const FavBtn = styled.button<IStyledProps>`
 
   & svg {
     display: block;
-    color: ${({ isFav }) => (isFav ? 'rgb(244, 197, 80)' : 'rgb(18, 20, 23)')};
+    color: ${({ isFav, theme }) =>
+      isFav ? theme.colors.primaryColor : theme.colors.primaryFontColor};
   }
 
   @media screen and (max-width: 1439px) {

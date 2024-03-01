@@ -31,10 +31,12 @@ export const ReviewerInfo = styled.div`
 `;
 
 export const Name = styled.p`
-  color: rgb(138, 138, 137);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.titleColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
@@ -45,24 +47,27 @@ export const RatingWrap = styled.div`
   gap: ${({ theme }) => theme.spacing(2)};
 
   & > svg {
-    color: rgb(255, 197, 49);
+    color: ${({ theme }) => theme.colors.iconColor};
   }
 `;
 
 export const Rating = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.other}px;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.29;
   letter-spacing: 0%;
 `;
 
 export const Comment = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;

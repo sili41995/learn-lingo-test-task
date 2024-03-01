@@ -11,19 +11,19 @@ const GlobalStyles: FC = () => (
       @font-face {
         font-family: ${theme.fontFamily.primaryFontFamily};
         src: local('Manrope'), url(${robotoBold}) format('truetype');
-        font-weight: 700;
+        font-weight: ${theme.fontWeight.otherFontWeight};
       }
 
       @font-face {
         font-family: ${theme.fontFamily.primaryFontFamily};
         src: local('Manrope'), url(${robotoMedium}) format('truetype');
-        font-weight: 500;
+        font-weight: ${theme.fontWeight.primaryFontWeight};
       }
 
       @font-face {
         font-family: ${theme.fontFamily.primaryFontFamily};
         src: local('Manrope'), url(${robotoRegular}) format('truetype');
-        font-weight: 400;
+        font-weight: ${theme.fontWeight.secondaryFontWeight};
       }
 
       body {

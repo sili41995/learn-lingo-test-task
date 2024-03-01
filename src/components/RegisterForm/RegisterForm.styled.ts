@@ -1,20 +1,23 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 40px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.formTitle}px;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.2;
   letter-spacing: -2%;
 `;
 
 export const Description = styled.p`
   margin-top: ${({ theme }) => theme.spacing(5)};
-  color: rgba(18, 20, 23, 0.8);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.descriptionColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.secondaryFontWeight};
+
   line-height: 1.38;
   letter-spacing: 0%;
 `;
@@ -45,17 +48,19 @@ export const Input = styled.input`
   width: 100%;
   padding: ${({ theme }) => theme.spacing(4)};
   border: none;
-  outline: 1px solid rgba(18, 20, 23, 0.1);
+  outline: 1px solid ${({ theme }) => theme.colors.outlineColor};
   border-radius: 12px;
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.secondaryFontWeight};
+
   line-height: 1.38;
   letter-spacing: 0%;
 
   &::placeholder {
-    color: rgb(18, 20, 23);
+    color: ${({ theme }) => theme.colors.primaryFontColor};
   }
 `;
 

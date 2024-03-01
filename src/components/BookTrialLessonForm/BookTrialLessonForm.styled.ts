@@ -1,20 +1,21 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 40px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.formTitle}px;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
   line-height: 1.2;
   letter-spacing: -0.02;
 `;
 
 export const Description = styled.p`
   margin-top: ${({ theme }) => theme.spacing(5)};
-  color: rgba(18, 20, 23, 0.8);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.descriptionColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+  font-weight: ${({ theme }) => theme.fontWeight.secondaryFontWeight};
+
   line-height: 1.38;
   letter-spacing: 0%;
 `;
@@ -38,29 +39,33 @@ export const InfoWrap = styled.div`
 `;
 
 export const InfoTitle = styled.p`
-  color: rgb(138, 138, 137);
-  font-family: Roboto;
+  color: ${({ theme }) => theme.colors.titleColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
   font-size: 12px;
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.33;
   letter-spacing: 0%;
 `;
 
 export const Name = styled.p`
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
+  font-size: ${({ theme }) => theme.fontSize.primary}px;
+
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.5;
   letter-spacing: 0%;
 `;
 
 export const Subtitle = styled.p`
   margin-top: ${({ theme }) => theme.spacing(10)};
-  color: rgb(18, 20, 23);
-  font-family: Roboto;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
+  font-family: ${({ theme }) => theme.fontFamily.primaryFontFamily};
   font-size: 24px;
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
+
   line-height: 1.33;
   letter-spacing: 0%;
 `;
