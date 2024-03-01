@@ -5,11 +5,15 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  width: ${({ theme }) =>
-    theme.containerWidth.otherDesktopSize +
-    theme.padding.containerPadding * 2}px;
+  width: 100%;
   padding-left: ${({ theme }) => `${theme.padding.containerPadding}px`};
   padding-right: ${({ theme }) => `${theme.padding.containerPadding}px`};
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 1440px) {
+    width: ${({ theme }) =>
+      theme.containerWidth.otherDesktopSize +
+      theme.padding.containerPadding * 2}px;
+  }
 `;

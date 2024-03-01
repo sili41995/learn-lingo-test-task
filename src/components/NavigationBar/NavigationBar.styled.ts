@@ -2,19 +2,38 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+
+  width: 100%;
+  gap: ${({ theme }) => theme.spacing(2)};
+  flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 `;
 
 export const Navigation = styled.nav`
   display: flex;
-  gap: ${({ theme }) => theme.spacing(97.5)};
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing(2)};
   align-items: center;
 
   & .logo {
     display: flex;
     gap: ${({ theme }) => theme.spacing(2)};
     align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: ${({ theme }) => theme.spacing(30)};
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: ${({ theme }) => theme.spacing(97.5)};
   }
 `;
 

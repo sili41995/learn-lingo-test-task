@@ -2,11 +2,17 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: ${({ theme }) => theme.spacing(6)};
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 export const InfoWrap = styled.div`
-  padding: 98px 108px 98px 64px;
+  padding: ${({ theme }) => theme.spacing(3)};
   border-radius: 30px;
   background: rgb(248, 248, 248);
   overflow: hidden;
@@ -27,6 +33,10 @@ export const InfoWrap = styled.div`
     letter-spacing: 0%;
     text-align: center;
   }
+
+  @media screen and (min-width: 1440px) {
+    padding: 98px 108px 98px 64px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -45,13 +55,13 @@ export const Accent = styled.span`
 `;
 
 export const Info = styled.p`
-  width: 471px;
+  max-width: 471px;
   margin-top: ${({ theme }) => theme.spacing(8)};
   color: rgb(18, 20, 23);
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1, 38;
+  line-height: 1.38;
   letter-spacing: -0.02em;
 `;
 
@@ -63,6 +73,10 @@ export const ImgWrap = styled.div`
   background-color: #fbe9ba;
   border-radius: 30px;
   overflow: hidden;
+
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
 `;
 
 export const GirlImg = styled.img`
@@ -85,19 +99,25 @@ export const StatisticsList = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   border: 1.5px dashed rgb(244, 197, 80);
   border-radius: 30px;
   margin-top: ${({ theme }) => theme.spacing(6)};
-  padding: ${({ theme }) => `${theme.spacing(10)} ${theme.spacing(30.5)}`};
+  padding: ${({ theme }) => theme.spacing(3)};
 
   & li:is(:nth-of-type(3), :nth-of-type(4)) > p:last-of-type {
     width: 74px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: ${({ theme }) => `${theme.spacing(10)} ${theme.spacing(30.5)}`};
   }
 `;
 
 export const ListItem = styled.li`
   display: flex;
   gap: ${({ theme }) => theme.spacing(4)};
+  flex-wrap: wrap;
 `;
 
 export const Quantity = styled.p`

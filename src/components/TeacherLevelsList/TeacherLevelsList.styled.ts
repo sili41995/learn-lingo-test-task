@@ -4,6 +4,7 @@ export const List = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.spacing(2)};
   margin-top: ${({ theme }) => theme.spacing(8)};
+  flex-wrap: wrap;
 `;
 
 export const ListItem = styled.li`

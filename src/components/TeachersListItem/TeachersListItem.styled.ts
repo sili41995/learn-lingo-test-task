@@ -1,11 +1,17 @@
 import styled from '@emotion/styled';
 
 export const ListItem = styled.li`
+  position: relative;
   display: flex;
   gap: ${({ theme }) => theme.spacing(12)};
+  flex-wrap: wrap;
   padding: ${({ theme }) => theme.spacing(6)};
   border-radius: 24px;
   background-color: rgb(255, 255, 255);
+
+  @media screen and (min-width: 1440px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -45,6 +51,7 @@ export const Status = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const TitleWrap = styled.div`

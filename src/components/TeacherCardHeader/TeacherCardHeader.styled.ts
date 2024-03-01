@@ -7,13 +7,19 @@ export const Container = styled.div`
   align-self: flex-start;
 
   & > svg {
-    color: rgb(0, 0, 0);
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      color: rgb(0, 0, 0);
+    }
   }
 `;
 
 export const OptionsList = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.spacing(4)};
+  flex-wrap: wrap;
   margin-left: ${({ theme }) => theme.spacing(2)};
 `;
 
@@ -57,5 +63,11 @@ export const FavBtn = styled.button<IStyledProps>`
   & svg {
     display: block;
     color: ${({ isFav }) => (isFav ? 'rgb(244, 197, 80)' : 'rgb(18, 20, 23)')};
+  }
+
+  @media screen and (max-width: 1439px) {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 `;
