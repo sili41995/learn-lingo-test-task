@@ -20,7 +20,7 @@ const FilterItem: FC<IProps> = ({
   const { updateSearchParams } = useSetSearchParams();
   const inputValue = value || 'All';
   const formattedInputValue =
-    name === SearchParamsKeys.price ? `${inputValue} $` : inputValue;
+    name === SearchParamsKeys.price && value ? `${inputValue} $` : inputValue;
 
   const onToggleMenuBtnClick = () => {
     setShowFiltersList((prevState) => !prevState);

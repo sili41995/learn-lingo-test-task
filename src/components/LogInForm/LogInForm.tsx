@@ -49,7 +49,6 @@ const LogInForm: FC<IProps> = ({ onSuccessfulLogIn }) => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         dispatch(setUser({ name: user.displayName, email: user.email }));
         onSuccessfulLogIn();
       })

@@ -52,8 +52,7 @@ const BookTrialLessonForm: FC<IProps> = ({ teacher }) => {
       );
   }, [isSubmitting, errors]);
 
-  const handleFormSubmit: SubmitHandler<ITrialLessonData> = (data) => {
-    console.log(data);
+  const handleFormSubmit: SubmitHandler<ITrialLessonData> = () => {
     reset();
   };
 
