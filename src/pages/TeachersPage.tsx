@@ -56,7 +56,7 @@ const TeachersPage: FC = () => {
     };
 
     getTeachers();
-  }, [startAt, updateSearchParams]);
+  }, [startAt]);
 
   const onLoadMOreBtnClick = () => {
     setStartAt((prevState) => prevState + GeneralParams.limit);
